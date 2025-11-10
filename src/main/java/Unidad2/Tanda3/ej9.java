@@ -1,8 +1,8 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.util.Scanner;
 
-public class T3ej9 {
+public class ej9 {
     /*
                 Pedir al usuari@ dos números:
             ○ múltiplo (comprobaremos qué números son múltiplos de este número)

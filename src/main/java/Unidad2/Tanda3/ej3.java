@@ -1,4 +1,4 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ import java.util.Scanner;
             ■ Escaleno: los tres lados distintos.
          */
 
-public class T3ej3 {
+public class ej3 {
     public static void main(String[] args) {
         Scanner skanner = new Scanner(System.in);
         boolean check = false;

@@ -1,8 +1,8 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.util.Scanner;
 
-public class T3ej4 {
+public class ej4 {
     /*
     Ofrecer al usuari@ un menú de opciones para realizar operaciones matemáticas
     básicas. El usuari@ introducirá dos números y, a continuación, elegirá qué operación

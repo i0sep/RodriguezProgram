@@ -1,7 +1,7 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.util.Scanner;
-public class T3ej1 {
+public class ej1 {
     public enum laSemana {                                         //crea la enumeracion
         LUNES,
         MARTES,

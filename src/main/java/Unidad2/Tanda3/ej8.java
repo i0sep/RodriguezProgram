@@ -1,8 +1,8 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.util.Scanner;
 
-public class T3ej8 {
+public class ej8 {
     /*
     Escribir un programa que pida números enteros al usuari@ hasta que introduzca un
     número negativo (en ese momento termina el programa).

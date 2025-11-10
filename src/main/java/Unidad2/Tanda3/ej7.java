@@ -1,4 +1,4 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.time.LocalTime;
 import java.util.InputMismatchException;
@@ -25,7 +25,7 @@ import java.util.Scanner;
  * Clase para el ejercicio 7
  */
 
-public class T3ej7 {
+public class ej7 {
 
     /**
      *

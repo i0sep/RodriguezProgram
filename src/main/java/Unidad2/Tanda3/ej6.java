@@ -1,8 +1,8 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.util.Scanner;
 
-public class T3ej6 {
+public class ej6 {
     /*
         Pedir al usuari@ un número del -1 al -10:
 ○ Mientras que el número no esté en ese rango, seguir pidiendo.

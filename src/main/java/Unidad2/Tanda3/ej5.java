@@ -1,8 +1,8 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.util.Scanner;
 
-public class T3ej5 {
+public class ej5 {
     /*
     Pedir al usuario una palabra:
         ○ Comprobar que tenga más de 5 letras:

@@ -1,8 +1,8 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.util.Scanner;
 
-public class T3ej10 {
+public class ej10 {
     /*
                 Pedir 2 números al usuari@. Si son múltiplos entre ellos (uno o otro) seguir pidiendo
                 hasta que no lo sean.

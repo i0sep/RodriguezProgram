@@ -1,8 +1,8 @@
-package Unidad2;
+package Unidad2.Tanda3;
 
 import java.util.Scanner;
 
-public class T3ej2 {
+public class ej2 {
 
     public static void main(String[] args) {
         Scanner skanner = new Scanner(System.in);

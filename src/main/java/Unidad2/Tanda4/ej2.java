@@ -1,4 +1,4 @@
-package Unidad2;
+package Unidad2.Tanda4;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -11,7 +11,7 @@ número, mostrando por pantalla el resultado.
  */
 
 
-public class T4ej2 {
+public class ej2 {
     public static void main(String[] args) {
         Scanner skanner = new Scanner(System.in);
         int num=0;boolean salir=false; int division = 0;
