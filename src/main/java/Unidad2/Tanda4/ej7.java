@@ -42,6 +42,7 @@ public class ej7 {
                 }
             }catch (InputMismatchException e){
                 System.out.println("Ha surgido un error con los tipos de datos introducidos: "+e);
+                skanner.nextLine();
                 continue;
             }
             System.out.println("Haciendo la media...");
@@ -61,8 +62,9 @@ public class ej7 {
                 }
             }catch (InputMismatchException e){
                 System.out.println("Ha surgido un error con los tipos de datos introducidos: "+e);
+                skanner.nextLine();
             }
-        }while (!(num1==-1 || num2==-1 || num3==-1 || num4==-4));
+        }while (!(num1==-1 || num2==-1 || num3==-1 || num4==-1));
     }
     public static double funcionMedia(double num1,double num2,double num3,double num4){
         double media = 0;
@@ -79,15 +81,10 @@ public class ej7 {
     }
     public static int funcionMayoresQue(final int mayorQue,double num1, double num2, double num3, double num4){
         int contador = 0;
-        if (num1 >= mayorQue){
-            contador++;
-        } else if (num2 >= mayorQue) {
-            contador++;
-        } else if (num3 >= mayorQue) {
-            contador++;
-        } else if (num4 >= mayorQue) {
-            contador++;
-        }
+        if (num1 >= mayorQue) contador++;
+        if (num2 >= mayorQue) contador++;
+        if (num3 >= mayorQue) contador++;
+        if (num4 >= mayorQue) contador++;
         return contador;
     }
     public static void funcionGrafica(double num1,double num2,double num3,double num4, double maxima){
@@ -106,5 +103,6 @@ public class ej7 {
         for (int j = 1;j<=num4;j++){
             System.out.print("*");
         }
+        System.out.printf("\n");
     }
 }
