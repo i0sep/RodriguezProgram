@@ -2,7 +2,7 @@ package Unidad2;
 
 import java.util.Scanner;
 
-public class u2t3ej4 {
+public class T3ej4 {
     /*
     Ofrecer al usuari@ un menú de opciones para realizar operaciones matemáticas
     básicas. El usuari@ introducirá dos números y, a continuación, elegirá qué operación

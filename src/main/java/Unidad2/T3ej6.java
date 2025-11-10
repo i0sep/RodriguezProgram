@@ -2,7 +2,7 @@ package Unidad2;
 
 import java.util.Scanner;
 
-public class u2t3ej6 {
+public class T3ej6 {
     /*
         Pedir al usuari@ un número del -1 al -10:
 ○ Mientras que el número no esté en ese rango, seguir pidiendo.

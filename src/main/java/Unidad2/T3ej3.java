@@ -14,7 +14,7 @@ import java.util.Scanner;
             ■ Escaleno: los tres lados distintos.
          */
 
-public class u2t3ej3 {
+public class T3ej3 {
     public static void main(String[] args) {
         Scanner skanner = new Scanner(System.in);
         boolean check = false;

@@ -2,7 +2,7 @@ package Unidad2;
 
 import java.util.Scanner;
 
-public class u2t3ej2 {
+public class T3ej2 {
 
     public static void main(String[] args) {
         Scanner skanner = new Scanner(System.in);

@@ -2,7 +2,7 @@ package Unidad2;
 
 import java.util.Scanner;
 
-public class u2t3ej9 {
+public class T3ej9 {
     /*
                 Pedir al usuari@ dos números:
             ○ múltiplo (comprobaremos qué números son múltiplos de este número)

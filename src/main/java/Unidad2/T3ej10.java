@@ -2,7 +2,7 @@ package Unidad2;
 
 import java.util.Scanner;
 
-public class u2t3ej10 {
+public class T3ej10 {
     /*
                 Pedir 2 números al usuari@. Si son múltiplos entre ellos (uno o otro) seguir pidiendo
                 hasta que no lo sean.

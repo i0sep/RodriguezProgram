@@ -2,7 +2,7 @@ package Unidad2;
 
 import java.util.Scanner;
 
-public class u2t3ej5 {
+public class T3ej5 {
     /*
     Pedir al usuario una palabra:
         ○ Comprobar que tenga más de 5 letras:

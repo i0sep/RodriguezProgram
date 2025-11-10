@@ -25,7 +25,7 @@ import java.util.Scanner;
  * Clase para el ejercicio 7
  */
 
-public class u2t3ej7 {
+public class T3ej7 {
 
     /**
      *
