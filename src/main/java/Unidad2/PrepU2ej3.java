@@ -133,9 +133,7 @@ public class PrepU2ej3 {
 
         int anoActual = 2025;
         int distancia = 2025 - ano;
-
-
-        int resultado = distancia * 365;
-        return resultado;
+        int distanciaDias = distancia * 365;
+        return distanciaDias;
     }
 }
