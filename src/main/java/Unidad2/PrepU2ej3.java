@@ -18,8 +18,8 @@ public class PrepU2ej3 {
         Scanner skanner = new Scanner(System.in);
         int mes = 0; int dia = 0;int ano=0;
         Date fecha = new Date();
-        System.out.println("Introduce un año: ");
 
+        System.out.println("Introduce un año: ");
         do {
             try{
                 ano = skanner.nextInt();
@@ -76,14 +76,14 @@ public class PrepU2ej3 {
 
 
     public static boolean funcionBisiesto(int ano){
-        boolean check = false;
+        boolean checkBisiesto = false;
         if (ano%4==0 && (ano%100!=0||ano%400==0)){
-            check = true;
+            checkBisiesto = true;
         }
-        String resultado = (check)?"es bisiesto":"no es bisiesto";
+        String resultado = (checkBisiesto)?"es bisiesto":"no es bisiesto";
         System.out.println("El año proporcionado "+resultado);
         System.out.println("--------------------------------------------------");
-        return check;
+        return checkBisiesto;
     }
 
 
@@ -91,29 +91,29 @@ public class PrepU2ej3 {
 
 
     public static int funcionMesDia(int mes,int dia, boolean bisiesto,Scanner skanner){
-        boolean correcto = false;
+        boolean mesDiaCorrecto = false;
         String limite = "";
         do {
             switch (mes){
                 case 1, 3, 5, 7, 8, 10, 12:             //31 días pueden tener
                     if (dia<=31){
-                        correcto = true;
+                        mesDiaCorrecto = true;
                     }else{
                         limite = "31";
                     }
                     break;
                 case 4, 6, 9, 11:                       //30 días pueden tener
                     if (dia<=30){
-                        correcto = true;
+                        mesDiaCorrecto = true;
                     }else{
                         limite = "30";
                     }
                     break;
                 case 2:                                 //Febrero
                     if (dia<=28 && !bisiesto){
-                        correcto = true;
+                        mesDiaCorrecto = true;
                     } else if (dia==29 && bisiesto) {
-                        correcto = true;
+
                     } else{
                         limite = (bisiesto)?"29":"28";
                     }
@@ -121,7 +121,7 @@ public class PrepU2ej3 {
                 default:
                     break;
             }
-            if (!correcto){
+            if (!mesDiaCorrecto){
                 try {
                     System.out.println("Dia no válido ingrese otro dentro de este rango [0,"+limite+"]");
                     dia = skanner.nextInt();
@@ -130,7 +130,7 @@ public class PrepU2ej3 {
                     skanner.nextLine();
                 }
             }
-        }while (!correcto);
+        }while (!mesDiaCorrecto);
         return dia;
     }
 
