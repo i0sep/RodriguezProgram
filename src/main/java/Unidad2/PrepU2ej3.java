@@ -1,6 +1,8 @@
 package Unidad2;
 
-import java.time.LocalTime;
+
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -61,6 +63,8 @@ public class PrepU2ej3 {
 
         int sumaMesDia = funcionSumaMesDia(ano,mes,dia);
         System.out.println("El resultado de dias total es "+sumaMesDia);
+        int anosDiferencia = Integer.valueOf(sumaMesDia)/365;
+        System.out.println("Años desde esa fecha "+anosDiferencia);
     }
 
 
@@ -128,12 +132,17 @@ public class PrepU2ej3 {
 
 
     public static int funcionSumaMesDia(int ano, int mes, int dia){
+        Date fecha = new Date();
+        int diaHoy = fecha.getDay();
+        int mesHoy = fecha.getMonth();
 
+        int diasanohoy = (mesHoy * diaHoy)-365;
         int diasano = (mes * dia)-365;
 
-        int anoActual = 2025;
-        int distancia = 2025 - ano;
-        int distanciaDias = distancia * 365;
+        int anoActual = fecha.getYear()-1;
+        int distancia = -anoActual + ano+1;
+        int distanciaDias = (distancia * 365)+diasano;
+
         return distanciaDias;
     }
 }
