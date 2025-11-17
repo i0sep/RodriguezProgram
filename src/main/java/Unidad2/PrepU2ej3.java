@@ -13,6 +13,7 @@ import java.util.Scanner;
     ● Informar del número de días entre una fecha y otra.
     ● Añadir un assert que controle que el año no sea negativo ni mayor a 10000.
  */
+
 public class PrepU2ej3 {
     public static void main(String[] args) {
         Scanner skanner = new Scanner(System.in);
@@ -27,9 +28,7 @@ public class PrepU2ej3 {
                 System.out.println("Error al introducir el tipo de dato: "+e);
                 skanner.nextLine();
             }
-            if (ano <= 1 || ano >= fecha.getYear()+1900){
-                System.out.println("Dia incorrecto introduzca otro: ");
-            }
+            assert ano>0: "Valor ingresado no válido";
         }while (ano <= 1 || ano >= fecha.getYear()+1900);
 
         boolean bisiesto = funcionBisiesto(ano);
@@ -43,9 +42,10 @@ public class PrepU2ej3 {
                 System.out.println("Error al introducir el tipo de dato: "+e);
                 skanner.nextLine();
             }
-            if (mes>12||mes<=0){
-                System.out.println("Mes incorrecto introduzca otro: ");
-            }
+//            if (mes>12||mes<=0){
+//                System.out.println("Mes incorrecto introduzca otro: ");
+//            }
+            assert mes>12||mes<=0: "Valor ingresado no válido";
         }while (mes>12||mes<=0);
 
         do {
@@ -58,9 +58,10 @@ public class PrepU2ej3 {
                 System.out.println("Error al introducir el tipo de dato: "+e);
                 skanner.nextLine();
             }
-            if (dia <= 0 || dia > 31){
-                System.out.println("Dia incorrecto introduzca otro: ");
-            }
+//            if (dia <= 0 || dia > 31){
+//                System.out.println("Dia incorrecto introduzca otro: ");
+//            }
+            assert (dia <= 0 || dia > 31): "Valor ingresado no válido";
         }while (dia <= 0 || dia > 31);
 
         dia = funcionMesDia(mes,dia,bisiesto,skanner);
