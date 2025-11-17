@@ -28,7 +28,7 @@ public class PrepU2ej3 {
                 System.out.println("Error al introducir el tipo de dato: "+e);
                 skanner.nextLine();
             }
-            assert ano>0: "Valor ingresado no válido";
+            assert ano>=0 || ano >= 10000: "Valor ingresado no válido";
         }while (ano <= 1 || ano >= fecha.getYear()+1900);
 
         boolean bisiesto = funcionBisiesto(ano);
