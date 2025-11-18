@@ -39,6 +39,5 @@ public class ej5 {
                 System.out.println("La división es: " + division);
             }
         }while (num!=10);
-
     }
 }
