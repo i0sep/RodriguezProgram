@@ -25,7 +25,7 @@ public class ej7Rehecho {
     public static void main(String[] args) {
         Scanner skanner = new Scanner(System.in);
         String numbersString = "";
-        int number;
+        int number = 0;
         double media;
         do {
             System.out.print("Dime un número: ");
