@@ -1,5 +1,6 @@
 package Unidad2.Tanda4;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*
@@ -12,11 +13,32 @@ número, mostrando por pantalla el resultado.
 ○ Llevar un contador de las veces que se han capturado una excepción y
 mostrar este contador siempre (utilizar finally).
  */
+
+
 public class ej5 {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner skanner = new Scanner(System.in);
-        System.out.println("Dime un número entero: ");
-        int number = skanner.nextInt();
+        int num=0; int division = 0; int contador = 0; int contador2 = 0;
+        do {
+            System.out.print("Dime un número entero: ");
+            try {
+                num = skanner.nextInt();
+                division = 5/num;
+                contador2 = contador;
+            } catch (InputMismatchException e) {
+                System.out.println("Tipo de dato erróneo, introduzca otro " + e);
+                skanner.nextLine();
+                contador++;
+            } catch (ArithmeticException e) {
+                System.out.println("No se puede dividir entre 0. " + e);
+                contador++;
+            }finally {
+                System.out.println("El número de errores ha sido de: "+contador);
+            }
+            if (contador2==contador){
+                System.out.println("La división es: " + division);
+            }
+        }while (num!=10);
 
     }
 }
