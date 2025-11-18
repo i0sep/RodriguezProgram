@@ -1,5 +1,6 @@
 package Unidad2.Tanda4;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*
@@ -28,7 +29,12 @@ public class ej7Rehecho {
         double media = 0;
         do {
             System.out.print("Dime un número: ");
-            number = skanner.nextInt();
+            try{
+                number = skanner.nextInt();
+            }catch (InputMismatchException e){
+                System.out.println("Error al introducir el tipo de dato: "+e);
+                skanner.nextLine();
+            }
             if (numbersString.isEmpty()&&number==-1){
                 System.out.println("«Sin datos»");
             }
