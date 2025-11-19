@@ -39,7 +39,7 @@ public class ej7Rehecho {
                 System.out.println("«Sin datos»");
             }
             if (number>=0&&number<=10){
-                numbersString = numbersString+number;
+                numbersString = numbersString+ (int)number;
                 numbersString+="-";
             }else {
                 System.out.println("El número ingresado esta fuera del rango.");
@@ -55,14 +55,14 @@ public class ej7Rehecho {
 
         int mayores5 = funcionMayor5(numbersString);
 
-        System.out.printf("El minimo es: %f, el maximo es %f y %d numeros son mayores que 5",minimo,maximo,mayores5);
+        System.out.printf("El minimo es: %f, el maximo es %f y %d numeros son mayores que 5\n",minimo,maximo,mayores5);
         System.out.print("¿Quieres una gráfica con las notas introducidas?: ");
-        String respuestaGrafica = skanner.nextLine();
+        String respuestaGrafica = skanner.next();
         if (respuestaGrafica.equalsIgnoreCase("si")){
             funcionGrafica(numbersString);
         }
 
-
+        skanner.close();
     }
 
     public static double funcionMedia(String numberString){
@@ -140,14 +140,12 @@ public class ej7Rehecho {
                 if (numberString.charAt(i) == '-') {
                     String numeroStr = numberString.substring(inicio, i);
                     numero = Integer.parseInt(numeroStr);
-                    for (int j = 0;j<=numero;j++){
+                    for (int j = 1;j<=numero;j++){
                         System.out.print("*");
                     }
                     System.out.println();
                     inicio = i + 1;
                 }
             }
-
         }
-
 }
