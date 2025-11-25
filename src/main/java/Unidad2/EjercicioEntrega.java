@@ -1,15 +1,6 @@
 package Unidad2;
 
-import java.awt.image.BufferedImageFilter;
 import java.util.Scanner;
-
-/*
-Un programa el cual le des una contraseña, y te dirá si cumple los requisitos.
-Requisitos:
-· Debe tener al menos 8 carácteres.
-· Debe contener al menos un número.
-· Debe contener al menos una letra mayúscula.
- */
 
 /**
  * Clase principal de un programa que valida contraseñas.
