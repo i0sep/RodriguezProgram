@@ -26,6 +26,9 @@ public class EjercicioEntrega {
 
             System.out.print("¿Desea validar otra contraseña? (S/N): ");
             String repeticion = skanner.nextLine();
+
+            assert !repeticion.isEmpty() : "La contraseña no puede estar vacía";
+
             if (repeticion.equalsIgnoreCase("S")){
                 volver = true;
             }else {
@@ -43,7 +46,9 @@ public class EjercicioEntrega {
         assert !password.isEmpty() : "La contraseña no puede estar vacía";
         assert password.length() <= 24 : "La contraseña no puede tener más de 24 caracteres";
 
+
         boolean cumpleTodosRequisitos = true;
+
 
         System.out.println(" Requisitos cumplidos/no cumplidos:");
         if (password.length()>=8){
@@ -52,18 +57,26 @@ public class EjercicioEntrega {
             System.out.println("  - Tiene al menos 8 caracteres ❌");
             cumpleTodosRequisitos = false;
         }
+
+
+
         if (contieneNumero(password)){
             System.out.println("  - Contiene al menos un número ✅");
         }else {
             System.out.println("  - Contiene al menos un número ❌");
             cumpleTodosRequisitos = false;
         }
+
+
+
         if (!password.equals(password.toLowerCase())){
             System.out.println("  - Contiene al menos una letra mayúscula ✅");
         }else {
             System.out.println("  - Contiene al menos una letra mayúscula ❌");
             cumpleTodosRequisitos = false;
         }
+
+
 
         if (cumpleTodosRequisitos){
             System.out.println("\n---Contraseña válida.---");

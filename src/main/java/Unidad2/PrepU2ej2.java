@@ -24,15 +24,30 @@ public class PrepU2ej2 {
         int numero = 0;
         switch (opcion){
             case 1:
-                String numeros = frase.replaceAll("[^0-9]", "");
-                opcion = numeros.length();
+                frase = frase.replaceAll("[^0-9]", "");
+                System.out.println("Hay " + frase.length() + " números.\n");
+                break;
+            case 2:
+                frase = frase.replaceAll("[a-zA-Z0-9 ]", "");
+                System.out.println("Hay " + frase.length() + " carácteres especiales.\n");
+                break;
+            case 3:
+                String frase2 = "";
+                frase = frase.replaceAll("[^a-z]","");
+                for (int i = frase.length()-1;i>=0;i--){
+                    frase2 += frase.charAt(i);
+                }
+                System.out.println("Frase invertida: " + frase2);
+                break;
+            default:
+                break;
         }
     }
 
     public static int pedirOpcion6(Scanner scanner){
         int opcion = 0;
         System.out.println("Elige una opción:");
-        System.out.println("    1. Contar nñumeros");
+        System.out.println("    1. Contar numeros");
         System.out.println("    2. Contar caracteres especiales (todo lo que no sea letra ni número ni espacio)");
         System.out.println("    3. Invertir letras de cada palabra");
         System.out.println("    4. Salir");
