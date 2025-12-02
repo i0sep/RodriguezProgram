@@ -1,5 +1,4 @@
 package Unidad2;
-import com.sun.jdi.IntegerValue;
 
 import java.util.Scanner;
 
