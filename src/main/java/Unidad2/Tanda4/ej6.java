@@ -6,17 +6,18 @@ import java.util.Scanner;
     Pedir por la entrada estándar 3 datos: kWh consumidos (entero positivo), tramo
     horario ("punta", "llano", "valle") y si el usuario es “bonificado” (S/N).
         ○ El programa debe:
-        ■ Calcular el consumo teniendo en cuenta los precios base por kWh:
-        punta 0.30€, llano 0.20€, valle 0.12€.
-        ■ Si kWh > 500 se aplicará un 5% descuento sobre el consumo.
-        ■ Si es bonificado se aplicará un 7% sobre el consumo.
-        ■ Repetiremos los cálculos con los nuevos datos hasta que el usuario
-        escriba “salir”.
-        ■ Se deben controlar las entradas inválidas con try-catch mostrando un
-        aviso y continuando el bucle.
-        ■ Utilizar finally para imprimir una línea separadora entre petición y
-        petición.
- */
+            ■ Calcular el consumo teniendo en cuenta los precios base por kWh:
+            punta 0.30€, llano 0.20€, valle 0.12€.
+            ■ Si kWh > 500 se aplicará un 5% descuento sobre el consumo.
+            ■ Si es bonificado se aplicará un 7% sobre el consumo.
+            ■ Repetiremos los cálculos con los nuevos datos hasta que el usuario
+            escriba “salir”.
+            ■ Se deben controlar las entradas inválidas con try-catch mostrando un
+            aviso y continuando el bucle.
+            ■ Utilizar finally para imprimir una línea separadora entre petición y
+            petición.
+*/
+
 public class ej6 {
     public static void main(String[] args) {
         Scanner skanner = new Scanner(System.in);
