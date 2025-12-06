@@ -5,16 +5,20 @@ public class Perro {
     private String raza;
     private String color;
     private int nivelSuciedad;
+    public static int nPerros;
 
     public Perro(String raza, int nPatas, String color, int nivelSuciedad){
         setnPatas(nPatas);
         setColor(color);
         setRaza(raza);
         setNivelSuciedad(nivelSuciedad);
+        nPerros++;
     }
+
     @Override
     public String toString() {
-        String salida = "Perro {Raza: "+raza+", Número de patas: "+nPatas+", Color: "+color+", Suciedad: "+nivelSuciedad;
+        String salida = "Perro {Raza: "+raza+", Número de patas: "+nPatas+", Color: "+color+", " +
+                "Suciedad: "+nivelSuciedad+" Perros totales: " + nPerros;
         return salida;
     }
 
@@ -35,6 +39,14 @@ public class Perro {
     public void clean(){
         setNivelSuciedad(0);
     }
+
+    public static void ladrar(){
+        System.out.println("Guau guau.");
+    }
+
+
+
+
 
     public int getnPatas() {
         return nPatas;
