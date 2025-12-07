@@ -21,7 +21,7 @@ public class Coche {
     //Comportamientos
     @Override
     public String toString(){
-        String salida = "Atributos[Marca: "+brand+", Modelo: "+model+", Año: "+year;
+        String salida = "Atributos[Marca: "+brand+", Modelo: "+model+", Año: "+year+"]";
         return salida;
     }
 
