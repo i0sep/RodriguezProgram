@@ -32,8 +32,8 @@ public class main {
             if (record<balance){
                 record = balance;
             }
-            System.out.println("Tu nuevo balance: "+balance);
-
+            System.out.println("Tu nuevo balance: "+balance+"$");
+            System.out.println("Tu record es: "+record+"$");
         }while (tirar.equalsIgnoreCase("s"));
     }
     public static String funcionTirada(){     //🍋🍒🔔🍀💎
