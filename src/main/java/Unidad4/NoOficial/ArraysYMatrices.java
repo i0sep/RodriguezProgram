@@ -19,5 +19,6 @@ public class ArraysYMatrices {
             }
         }
         System.out.println(Arrays.deepToString(numeros));
+        scanner.close();
     }
 }
