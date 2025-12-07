@@ -6,7 +6,6 @@ public class NumeroAleatorio {
     public NumeroAleatorio(){
         setTotal(total++);
     }
-
     //Comportamientos
     public static int aleatorio10(){
         int numero = (int)(Math.random()*10)+1;
