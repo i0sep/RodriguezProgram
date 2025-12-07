@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int balance = 300; String tirar = ""; String slot1; String slot2; String slot3;
+        int balance = 300; String tirar = ""; String slot1; String slot2; String slot3; int record = 0;
         System.out.println("Balance: "+balance);
         do {
             System.out.print("¿Deseas hacer una tirada?: ");
@@ -29,7 +29,11 @@ public class main {
             int ganancia = funcionGanancia(slot1,slot2,slot3);
             System.out.println("HAS GANADO: "+ganancia);
             balance = balance+ganancia;
+            if (record<balance){
+                record = balance;
+            }
             System.out.println("Tu nuevo balance: "+balance);
+
         }while (tirar.equalsIgnoreCase("s"));
     }
     public static String funcionTirada(){     //🍋🍒🔔🍀💎
