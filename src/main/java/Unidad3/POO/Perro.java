@@ -16,7 +16,7 @@ public class Perro {
     }
 
     @Override
-    public String toString() {
+    public String toString(){
         String salida = "Perro {Raza: "+raza+", Número de patas: "+nPatas+", Color: "+color+", " +
                 "Suciedad: "+nivelSuciedad+" Perros totales: " + nPerros;
         return salida;
