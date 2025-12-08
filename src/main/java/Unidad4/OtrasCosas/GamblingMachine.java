@@ -1,24 +1,16 @@
-package Unidad4.MaquinaGambling;
+package Unidad4.OtrasCosas;
 
 import java.util.Scanner;
 
-public class main {
+public class GamblingMachine {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int balance = 300; String tirar = ""; String slot1; String slot2; String slot3; int record = 300;
         System.out.println("Balance: "+balance);
         do {
-            System.out.print("¿Deseas hacer una tirada?: ");
-            tirar = scanner.nextLine();
-            if (tirar.equalsIgnoreCase("s")){
-                if (balance>0){
-                    balance = balance-10;
-                }else{
-                    System.out.println("No puedes seguir tirando eres pobre.");
-                    break;
-                }
-            }else continue;
-
+            System.out.print("Enter para hacer una tirada.");
+            scanner.nextLine();
+            balance = balance - 10;
             slot1 = funcionTirada();
             slot2 = funcionTirada();
             slot3 = funcionTirada();
@@ -27,14 +19,19 @@ public class main {
             System.out.println("---"+slot1+"----"+slot2+"----"+slot3+"--");
             System.out.println("====================");
             int ganancia = funcionGanancia(slot1,slot2,slot3);
-            System.out.println("HAS GANADO: "+ganancia);
+            System.out.println("  HAS GANADO: "+ganancia);
             balance = balance+ganancia;
             if (record<balance){
                 record = balance;
             }
-            System.out.println("Tu nuevo balance: "+balance+"$");
-            System.out.println("Tu record es: "+record+"$");
-        }while (tirar.equalsIgnoreCase("s"));
+            System.out.println("  Tu nuevo balance: "+balance+"$");
+            if (ganancia>0){
+                System.out.println("\uD83C\uDFB0 \uD83C\uDFB0 \uD83C\uDFB0 \uD83C\uDFB0 \uD83C\uDFB0 \uD83C\uDFB0 \uD83C\uDFB0 \uD83C\uDFB0");
+            }
+            System.out.println("  Tu record es: "+record+"$");
+        }while (balance>0);
+        System.out.println("No puedes seguir tirando eres pobre.");
+        scanner.close();
     }
     public static String funcionTirada(){     //🪨🍋🍒🔔🍀💎💵
         int random = (int)(Math.random()*7);
