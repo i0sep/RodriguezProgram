@@ -3,16 +3,11 @@ package Unidad4.OtrasCosas.BlackJack;
 public class Carta {
     private String palo;                //"Corazones", "Diamantes", "Tréboles", "Picas"
     private String simbolo;             //"A", "2", "3", "4", "5", "6", "7","8","9","10","J","Q","K"
-
+    private int valor;
     //constructor
     public Carta(String palo, String simbolo){
         setPalo(palo);
         setSimbolo(simbolo);
-    }
-
-    //metodos
-    public int valor(){
-        int valor = 0;
         switch (simbolo){
             case "A":
                 valor = 11;
@@ -45,10 +40,7 @@ public class Carta {
                 valor = 10;
                 break;
         }
-        return valor;
     }
-
-
 
     //getter y setter
     public String getPalo() {
@@ -69,5 +61,11 @@ public class Carta {
                 "palo='" + palo + '\'' +
                 ", valor='" + simbolo + '\'' +
                 '}';
+    }
+    public int getValor() {
+        return valor;
+    }
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 }
