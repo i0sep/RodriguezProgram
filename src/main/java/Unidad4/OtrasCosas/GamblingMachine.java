@@ -33,7 +33,7 @@ public class GamblingMachine {
         System.out.println("No puedes seguir tirando eres pobre.");
         scanner.close();
     }
-    public static String funcionTirada(){     //🪨🍋🍒🔔🍀💎💵
+    public static String funcionTirada(){     //🤡​🍋🍒🔔🍀💎💵
         int random = (int)(Math.random()*7);
         String salida = "";
         if (random == 0){
@@ -47,7 +47,7 @@ public class GamblingMachine {
         } else if (random == 4) {
             salida = "\uD83D\uDC8E"; //💎
         } else if (random == 5) {
-            salida = "\uD83E\uDEA8"; //🪨
+            salida = "\uD83E\uDD21\u200B"; //🤡​
         } else if (random == 6) {
             salida = "\uD83D\uDCB5"; //💵
         }
