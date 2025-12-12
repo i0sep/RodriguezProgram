@@ -35,14 +35,27 @@ public class main {
                 String seguirPidiendoS = "";
                 do {
                     jugador.add(baraja.repartirCarta());
+
+                    
+
                     System.out.println("Tus cartas: "+jugador);
                     System.out.println("Tus puntos: " + puntJugador);
                     System.out.println("¿Pedir otra carta? (s/n): ");
-
-
-
-
+                    seguirPidiendoS = scanner.next();
+                    if (seguirPidiendoS.equalsIgnoreCase("s")){
+                        seguirPidiendo = true;
+                    }else {
+                        seguirPidiendo = false;
+                    }
                 }while (seguirPidiendo);
+                funcionDealerCarta(dealer, baraja);
+                for (int i = 0;i < dealer.size() ; i++){
+                    puntDealer += dealer.get(i).getValor();
+                }
+                if (puntDealer>21){
+                    puntDealer = 0;
+                }
+                comprobarGanador(puntDealer,puntJugador);
                 break;
             case 2:
                 if (jugador.get(0).getValor() == 11 && jugador.get(1).getValor() == 11) {
@@ -64,13 +77,7 @@ public class main {
                 if (puntDealer>21){
                     puntDealer = 0;
                 }
-                if (puntJugador > puntDealer) {
-                    System.out.println("Has Ganado");
-                }else if (puntJugador == puntDealer){
-                    System.out.println("Nadie gana.");
-                }else {
-                    System.out.println("Has Perdido");
-                }
+                comprobarGanador(puntDealer,puntJugador);
                 break;
             case 3:
                 break;
@@ -101,6 +108,15 @@ public class main {
             Thread.sleep(milisegundos);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+    public static void comprobarGanador(int puntDealer, int puntJugador){
+        if (puntJugador > puntDealer) {
+            System.out.println("Has Ganado");
+        }else if (puntJugador == puntDealer){
+            System.out.println("Nadie gana.");
+        }else {
+            System.out.println("Has Perdido");
         }
     }
 }

@@ -12,7 +12,7 @@ public class Guerrero {
         setNivel(1);
     }
 
-    //Metodos
+    //Métodos
     public int atacar(){
         int danio; int danioTotal = 0;
         for (int i = 1; i<=nivel;i++){

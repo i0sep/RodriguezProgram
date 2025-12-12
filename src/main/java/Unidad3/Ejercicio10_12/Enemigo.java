@@ -14,6 +14,7 @@ public class Enemigo {
             setDanio(5);
             setVida(12);
         }
+        setNivel(nivel);
     }
     //Metodos
 

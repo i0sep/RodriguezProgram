@@ -13,13 +13,16 @@ public class main {
                 nivelEnemigo = 1;
             }else {
                 expRecibida = 3;
-                nivelEnemigo = 1;
+                nivelEnemigo = 2;
             }
             Enemigo enemigo = new Enemigo(nivelEnemigo);
             while (enemigo.getVida()>=0) {
                 danioTurno = guerrera.atacar();
                 enemigo.recibirDanio(danioTurno);
                 System.out.println("Has hecho "+danioTurno+" puntos de ataque. "+enemigo.getVida()+" vida restante.");
+                if (enemigo.getVida() <= 0){
+                    continue;
+                }
                 guerrera.recibirDanio(enemigo.atacar());
                 System.out.println("Te han atacado. Tienes "+guerrera.getVida()+" restante.");
                 if (guerrera.getVida()<=0){
@@ -29,7 +32,7 @@ public class main {
             if (guerrera.getVida()>0){
                 enemigoMatado++;
                 guerrera.incExperiencia(expRecibida);
-                System.out.println("Tu guerrera tiene estos atributos: "+guerrera.toString());
+                System.out.println("Tu guerrera tiene estos atributos: " + guerrera.toString());
                 System.out.println("Enter para seguir peleando");
                 scanner.nextLine();
             }else {

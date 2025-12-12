@@ -4,7 +4,7 @@ public class NumeroAleatorio {
     private static int total;
     //Constructor
     public NumeroAleatorio(){
-        setTotal(total++);
+        setTotal(total+1);
     }
     //Comportamientos
     public static int aleatorio10(){
