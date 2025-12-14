@@ -20,6 +20,5 @@ public class main {
                 seguir = true;
             }else seguir = false;
         }while (seguir);
-
     }
 }
