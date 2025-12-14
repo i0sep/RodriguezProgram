@@ -7,7 +7,7 @@ public class Guerrero {
 
     //Constructor
     public Guerrero(){
-        setVida(20);
+        setVida(20);    //vida = 20;
         setExperiencia(0);
         setNivel(1);
     }

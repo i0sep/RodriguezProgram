@@ -35,11 +35,14 @@ public class main {
                 String seguirPidiendoS = "";
                 do {
                     jugador.add(baraja.repartirCarta());
-
-                    
-
+                    puntJugador = comprobarPuntosJugador(jugador);
                     System.out.println("Tus cartas: "+jugador);
                     System.out.println("Tus puntos: " + puntJugador);
+                    if (puntJugador > 21){
+                        seguirPidiendo = false;
+                        System.out.println("Te has pasado de 21.");
+                        continue;
+                    }
                     System.out.println("¿Pedir otra carta? (s/n): ");
                     seguirPidiendoS = scanner.next();
                     if (seguirPidiendoS.equalsIgnoreCase("s")){
@@ -48,35 +51,21 @@ public class main {
                         seguirPidiendo = false;
                     }
                 }while (seguirPidiendo);
-                funcionDealerCarta(dealer, baraja);
-                for (int i = 0;i < dealer.size() ; i++){
-                    puntDealer += dealer.get(i).getValor();
+                if (puntJugador <= 21){
+                    funcionDealerCarta(dealer, baraja);
+                    puntDealer = comprobarPuntosDealer(dealer);
+
+                    comprobarGanador(puntDealer,puntJugador);
+                }else {
+                    System.out.println("Has perdido te has pasado.");
                 }
-                if (puntDealer>21){
-                    puntDealer = 0;
-                }
-                comprobarGanador(puntDealer,puntJugador);
                 break;
             case 2:
-                if (jugador.get(0).getValor() == 11 && jugador.get(1).getValor() == 11) {
-                    jugador.get(1).setValor(1);
-                }else if (dealer.get(0).getValor() == 11 && dealer.get(1).getValor() == 11) {
-                    dealer.get(1).setValor(1);
-                }
+                puntJugador = comprobarPuntosJugador(jugador);
 
-                puntDealer = puntDealer + dealer.get(1).getValor();
-                System.out.println("Carta dealer: "+dealer.get(0)+" y "+dealer.get(1));
-                System.out.println("Puntos = "+puntDealer);
-                System.out.println("Carta jugador: "+jugador.get(0)+" y "+jugador.get(1));
-                System.out.println("Puntos = "+puntJugador);
+                funcionDealerCarta(dealer,baraja);
 
-                dealer = funcionDealerCarta(dealer, baraja);
-                for (int i = 0;i < dealer.size() ; i++){
-                    puntDealer += dealer.get(i).getValor();
-                }
-                if (puntDealer>21){
-                    puntDealer = 0;
-                }
+
                 comprobarGanador(puntDealer,puntJugador);
                 break;
             case 3:
@@ -86,23 +75,23 @@ public class main {
         }
     }
     public static ArrayList<Carta> funcionDealerCarta(ArrayList<Carta> dealer,Baraja baraja){
-        int puntDealer = 0; int cartasDealer = 0;
-        for (int i = 0;i < dealer.size() ; i++){
-            puntDealer += dealer.get(i).getValor();
-            cartasDealer++;
-        }
+        int cartasDealer = 0;
+
+        int puntDealer = comprobarPuntosDealer(dealer);
+
         while (puntDealer <= 16){
-            dealer.get(cartasDealer-1);
+            puntDealer = 0;
             dealer.add(baraja.repartirCarta());
-            puntDealer += dealer.get(cartasDealer-1).getValor();
-            cartasDealer++;
+
+            puntDealer = comprobarPuntosDealer(dealer);
             System.out.println("Repartiendo carta al dealer...");
+
             esperar(1500);
-            System.out.println("Cartas del dealer: "+ dealer.toString());
-            System.out.println("Puntos del dealer: "+ puntDealer);
         }
+        System.out.println("Cartas del dealer: "+ dealer.toString());
+        System.out.println("Puntos del dealer: "+ puntDealer);
         return dealer;
-        }
+    }
     public static void esperar(int milisegundos) {
         try {
             Thread.sleep(milisegundos);
@@ -110,13 +99,49 @@ public class main {
             e.printStackTrace();
         }
     }
-    public static void comprobarGanador(int puntDealer, int puntJugador){
-        if (puntJugador > puntDealer) {
-            System.out.println("Has Ganado");
-        }else if (puntJugador == puntDealer){
-            System.out.println("Nadie gana.");
-        }else {
-            System.out.println("Has Perdido");
+    public static int comprobarPuntosDealer(ArrayList<Carta> dealer){
+        int puntosDealer = 0;
+        for (int i = 0;i < dealer.size() ; i++){
+            puntosDealer += dealer.get(i).getValor();
         }
+        if (puntosDealer>21){
+            puntosDealer = 0;
+            for (int i = 0;i < dealer.size() ; i++){
+                if (dealer.get(i).getValor()==11){
+                    dealer.get(i).setValor(1);
+                }
+                puntosDealer += dealer.get(i).getValor();
+            }
+        }
+        return puntosDealer;
+    }
+    public static void comprobarGanador(int puntDealer, int puntJugador){
+        if (puntDealer>21 && puntJugador<=21){
+            System.out.println("Has ganado");
+        } else if (puntDealer <= 21 & puntJugador<=21) {
+            if (puntDealer>puntJugador){
+                System.out.println("Has Perdido");
+            } else if (puntDealer<puntJugador) {
+                System.out.println("Has Ganado");
+            }else {
+                System.out.println("Nadie gana.");
+            }
+        }
+    }
+    public static int comprobarPuntosJugador(ArrayList<Carta> jugador){
+        int puntosJugador = 0;
+        for (int i = 0;i < jugador.size() ; i++){
+            puntosJugador += jugador.get(i).getValor();
+        }
+        if (puntosJugador>21){
+            puntosJugador = 0;
+            for (int i = 0;i < jugador.size() ; i++){
+                if (jugador.get(i).getValor()==11){
+                    jugador.get(i).setValor(1);
+                }
+                puntosJugador += jugador.get(i).getValor();
+            }
+        }
+        return puntosJugador;
     }
 }

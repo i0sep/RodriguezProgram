@@ -16,8 +16,9 @@ public class Enemigo {
         }
         setNivel(nivel);
     }
-    //Metodos
 
+
+    //Metodos
     public int atacar(){
         int ataque;
         if (Math.random()*6==0){
