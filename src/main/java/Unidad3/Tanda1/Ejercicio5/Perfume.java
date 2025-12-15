@@ -1,17 +1,17 @@
 package Unidad3.Tanda1.Ejercicio5;
-
+enum Ingredientes{
+    AZAHAR, PACHULI, VAINILLA, NULL
+}
+enum Olores{
+    NORMAL, BUENO, MALO, NULL
+}
 public class Perfume {
     private int id;
     private Ingredientes ingrediente1;
     private Ingredientes ingrediente2;
     private Ingredientes ingrediente3;
     private Olores olor;
-    enum Ingredientes{
-        AZAHAR, PACHULI, VAINILLA, NULL
-    }
-    enum Olores{
-        NORMAL, BUENO, MALO, NULL
-    }
+
 
     //Constructores
     public Perfume(int id, Ingredientes ingrediente1){
