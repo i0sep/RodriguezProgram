@@ -8,40 +8,33 @@ public class main {
         System.out.println(perfume1.getOlor());
         System.out.println(perfume2.getOlor());
 
-        if (random == 0){
-            perfume1.setIngrediente2(Perfume.Ingredientes.PACHULI);
-        } else if (random == 1) {
-            perfume1.setIngrediente2(Perfume.Ingredientes.AZAHAR);
-        }else {
-            perfume1.setIngrediente2(Perfume.Ingredientes.VAINILLA);
-        }
-        random = (int)(Math.random()*3);
-        if (random == 0){
-            perfume1.setIngrediente3(Perfume.Ingredientes.PACHULI);
-        } else if (random == 1) {
-            perfume1.setIngrediente3(Perfume.Ingredientes.AZAHAR);
-        }else {
-            perfume1.setIngrediente3(Perfume.Ingredientes.VAINILLA);
-        }
-        random = (int)(Math.random()*3);
-        if (random == 0){
-            perfume2.setIngrediente2(Perfume.Ingredientes.PACHULI);
-        } else if (random == 1) {
-            perfume2.setIngrediente2(Perfume.Ingredientes.AZAHAR);
-        }else {
-            perfume2.setIngrediente2(Perfume.Ingredientes.VAINILLA);
-        }
-        random = (int)(Math.random()*3);
-        if (random == 0){
-            perfume2.setIngrediente3(Perfume.Ingredientes.PACHULI);
-        } else if (random == 1) {
-            perfume2.setIngrediente3(Perfume.Ingredientes.AZAHAR);
-        }else {
-            perfume2.setIngrediente3(Perfume.Ingredientes.VAINILLA);
-        }
+        perfume1 = aleatorio(perfume1);
+        perfume2 = aleatorio(perfume2);
 
         System.out.println("------------------------");
         System.out.println(perfume1.getOlor());
         System.out.print(perfume2.getOlor());
+    }
+    public static Perfume aleatorio(Perfume perfume){
+        int random = (int)(Math.random()*3);
+        int random1 = (int)(Math.random()*3);
+        Perfume.Ingredientes ing1;
+        Perfume.Ingredientes ing2;
+        if (random == 0){
+            ing1 = Perfume.Ingredientes.PACHULI;
+        } else if (random == 1) {
+            ing1 = Perfume.Ingredientes.AZAHAR;
+        }else {
+            ing1 = Perfume.Ingredientes.VAINILLA;
+        }
+        if (random1 == 0){
+            ing2 = Perfume.Ingredientes.PACHULI;
+        } else if (random1 == 1) {
+            ing2 = Perfume.Ingredientes.AZAHAR;
+        }else {
+            ing2 = Perfume.Ingredientes.VAINILLA;
+        }
+        perfume.prepararPerfume(ing1,ing2);
+        return perfume;
     }
 }
