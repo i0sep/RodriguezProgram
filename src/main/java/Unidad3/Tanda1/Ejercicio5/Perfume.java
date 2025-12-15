@@ -3,8 +3,8 @@ package Unidad3.Tanda1.Ejercicio5;
 public class Perfume {
     private int id;
     private Ingredientes ingrediente1;
-    private Ingredientes ingrediente2 = Ingredientes.NULL;
-    private Ingredientes ingrediente3 = Ingredientes.NULL;
+    private Ingredientes ingrediente2;
+    private Ingredientes ingrediente3;
     private Olores olor;
     enum Ingredientes{
         AZAHAR, PACHULI, VAINILLA, NULL
@@ -19,7 +19,6 @@ public class Perfume {
         setIngrediente1(ingrediente1);
         setIngrediente2(Ingredientes.NULL);
         setIngrediente3(Ingredientes.NULL);
-        funcionOlor();
     }
     public Perfume(int id){
         this(id,Ingredientes.NULL);
