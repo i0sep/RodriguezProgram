@@ -12,7 +12,6 @@ public class Perfume {
     private Ingredientes ingrediente3;
     private Olores olor;
 
-
     //Constructores
     public Perfume(int id, Ingredientes ingrediente1){
         setId(id);
