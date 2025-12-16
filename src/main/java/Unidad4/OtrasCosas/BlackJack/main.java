@@ -8,7 +8,7 @@ public class main {
         Scanner scanner = new Scanner(System.in);
         Baraja baraja = new Baraja();
         baraja.barajar();baraja.barajar();baraja.barajar();
-        int puntDealer = 0; int puntJugador = 0; int balance = 100; int apuesta;
+        int puntDealer = 0; int puntJugador = 0; int balance = 100; int apuesta; int respuesta;
         ArrayList<Carta> dealer = new ArrayList<>();
         ArrayList<Carta> jugador = new ArrayList<>();
 
@@ -32,36 +32,28 @@ public class main {
             System.out.println("Primera carta: "+ jugador.get(0));
             System.out.println("Segunda carta: "+ jugador.get(1));
             System.out.println("Puntos = "+puntJugador);
-            System.out.println("Que quieres hacer: ");
-            System.out.println("1. Hit");
-            System.out.println("2. Stand");
-            System.out.println("3. Split");
-            System.out.println("4. Double");
-            int respuesta = scanner.nextInt();
+            do {
+                System.out.println("Que quieres hacer: ");
+                System.out.println("1. Hit");
+                System.out.println("2. Stand");
+                System.out.println("3. Split");
+                System.out.println("4. Double");
+
+                respuesta = scanner.nextInt();
+                if ((respuesta == 3 || respuesta == 4) && (apuesta*2)<balance){
+
+                }
+            }while ((respuesta == 3 || respuesta == 4) && (apuesta*2)<balance);
+
 
             //Fase 2
             switch(respuesta) {
                 case 1:
                     boolean seguirPidiendo = false;
                     String seguirPidiendoS = "";
-                    do {
-                        jugador.add(baraja.repartirCarta());
-                        puntJugador = comprobarPuntosJugador(jugador);
-                        System.out.println("Tus cartas: "+jugador);
-                        System.out.println("Tus puntos: " + puntJugador);
-                        if (puntJugador > 21){
-                            seguirPidiendo = false;
-                            System.out.println("Te has pasado de 21.");
-                            continue;
-                        }
-                        System.out.println("¿Pedir otra carta? (s/n): ");
-                        seguirPidiendoS = scanner.next();
-                        if (seguirPidiendoS.equalsIgnoreCase("s")){
-                            seguirPidiendo = true;
-                        }else {
-                            seguirPidiendo = false;
-                        }
-                    }while (seguirPidiendo);
+                    jugador = pedirCarta(jugador,baraja,scanner);
+                    puntJugador = comprobarPuntosJugador(jugador);
+
                     if (puntJugador <= 21){
                         funcionDealerCarta(dealer, baraja);
                         puntDealer = comprobarPuntosDealer(dealer);
@@ -88,11 +80,24 @@ public class main {
                     break;
                 case 3:
                     ArrayList<Carta> jugador2 = new ArrayList<>();
+                    int puntJugador2 = 0;
                     jugador2.add(jugador.remove(1));
+
                     System.out.println(jugador);
                     System.out.println(jugador2);
 
+                    pedirCarta(jugador,baraja,scanner);
+                    pedirCarta(jugador2,baraja,scanner);
+                    puntJugador = comprobarPuntosJugador(jugador);
+                    puntJugador2 = comprobarPuntosJugador(jugador2);
 
+                    funcionDealerCarta(dealer, baraja);
+                    puntDealer = comprobarPuntosDealer(dealer);
+
+                    System.out.println("Comprobando primera mano...");
+                    balance += comprobarGanador(puntJugador,puntDealer,apuesta);
+                    System.out.println("Comprobando segunda mano...");
+                    balance += comprobarGanador(puntJugador2,puntDealer,apuesta);
 
                     break;
                 case 4:
@@ -178,5 +183,29 @@ public class main {
             }
         }
         return puntosJugador;
+    }
+    public static ArrayList<Carta> pedirCarta(ArrayList<Carta> jugador, Baraja baraja, Scanner scanner){
+        boolean pedirCarta = false;
+        int puntJugador = comprobarPuntosJugador(jugador);
+        String pedirCartaS = "";
+        do {
+            jugador.add(baraja.repartirCarta());
+            puntJugador = comprobarPuntosJugador(jugador);
+            System.out.println("Tus cartas: "+jugador);
+            System.out.println("Tus puntos: " + puntJugador);
+            if (puntJugador > 21){
+                pedirCarta = false;
+                System.out.println("Te has pasado de 21.");
+                continue;
+            }
+            System.out.println("¿Pedir otra carta? (s/n): ");
+            pedirCartaS = scanner.next();
+            if (pedirCartaS.equalsIgnoreCase("s")){
+                pedirCarta = true;
+            }else {
+                pedirCarta = false;
+            }
+        }while(pedirCarta);
+        return jugador;
     }
 }
