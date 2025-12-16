@@ -49,4 +49,11 @@ public class Baraja {                                // 4 filas, 13 columnas
                 ", cartasBaraja=" + cartasBaraja +
                 '}';
     }
+
+    public int getCartasBaraja() {
+        return cartasBaraja;
+    }
+    public void setCartasBaraja(int cartasBaraja) {
+        this.cartasBaraja = cartasBaraja;
+    }
 }
