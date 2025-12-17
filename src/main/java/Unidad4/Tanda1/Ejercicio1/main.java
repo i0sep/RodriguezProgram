@@ -1,6 +1,5 @@
 package Unidad4.Tanda1.Ejercicio1;
 
-import java.sql.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,12 +20,15 @@ public class main {
         for (int i = 0; i< numeros.length;i++){
             numeros[i] = (int) (Math.random()*50)+50;
         }
+        System.out.println(Arrays.toString(numeros));
+        numeros = funcionArray(numeros);
+        System.out.println(Arrays.toString(numeros));
     }
     public static int[] funcionArray(int[] enteros){
-        int contador = 0;
-        for (int i = (enteros.length-1); i > 0; i--){
-            enteros[i] = enteros[contador];
-            contador++;
+        for (int i = 0, j = (enteros.length-1); i < enteros.length / 2; i++, j--){
+            int aux = enteros[i];
+            enteros[i] = enteros[(j)];
+            enteros[j] = aux;
         }
         return enteros;
     }
