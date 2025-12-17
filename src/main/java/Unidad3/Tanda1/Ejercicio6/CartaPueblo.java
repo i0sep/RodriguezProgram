@@ -25,11 +25,11 @@ public class CartaPueblo {
             efecto = "Curación";
         }else if (palo.equalsIgnoreCase("treboles") ||
                 palo.equalsIgnoreCase("tréboles")){
-            efecto = "Robar cartas";
+            efecto = "Daño Extra";
         } else if (palo.equalsIgnoreCase("diamantes")){
-            efecto = "Volver atrás";
+            efecto = "Robar cartas";
         } else if (palo.equalsIgnoreCase("picas")){
-            efecto = "Tener magia";
+            efecto = "Escudo";
         }else efecto = "NONE";
         return efecto;
     }
@@ -49,7 +49,15 @@ public class CartaPueblo {
     }
 
     public void setPalo(String palo) {
-        this.palo = palo;
+        if (palo.equalsIgnoreCase("treboles")
+                || palo.equalsIgnoreCase("tréboles")
+                || palo.equalsIgnoreCase("picas")
+                || palo.equalsIgnoreCase("diamantes")
+                || palo.equalsIgnoreCase("corazones")){
+            this.palo = palo;
+        }else {
+            this.palo = "picas";
+        }
     }
     @Override
     public String toString() {
