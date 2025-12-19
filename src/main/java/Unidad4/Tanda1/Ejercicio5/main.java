@@ -24,4 +24,39 @@ package Unidad4.Tanda1.Ejercicio5;
                             en qué línea.
  */
 public class main {
+    public static void main(String[] args) {
+        int numeroMaximo = 88;
+        int[] numerosBingo = new int[numeroMaximo-1];
+        Carton carton1 = new Carton(1,88);
+        Carton carton2 = new Carton(2,88);
+        Carton carton3 = new Carton(3,88);
+        int contador = 0; boolean hacer = false;
+        do {
+            int bola = (int)((Math.random()*(numeroMaximo-1))+1);
+
+            hacer = true;
+            for (int numero : numerosBingo){
+                if (numero == bola){
+                    hacer = false;
+                    break;
+                }
+            }
+
+            if (hacer){
+                numerosBingo[contador] = bola;
+                contador++;
+                carton1.comprobar(bola);
+                if (carton1.isBingo()) {
+                    continue;
+                }
+                carton2.comprobar(bola);
+                if (carton2.isBingo()) {
+                    continue;
+                }
+                carton3.comprobar(bola);
+            }
+
+        } while (!carton1.isBingo() && !carton2.isBingo() && !carton3.isBingo());
+
+    }
 }

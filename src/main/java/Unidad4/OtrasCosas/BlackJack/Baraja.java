@@ -15,7 +15,6 @@ public class Baraja {                                // 4 filas, 13 columnas
         String[] valores = {"A", "2", "3", "4", "5", "6", "7","8","9","10","J","Q","K"};
         int indice = 0;
         for (int i = 0; i < palos.length; i++){
-
             for (int j = 0; j < valores.length; j++){
                 todasCartas[indice] = new Carta(palos[i],valores[j]);
                 indice++;

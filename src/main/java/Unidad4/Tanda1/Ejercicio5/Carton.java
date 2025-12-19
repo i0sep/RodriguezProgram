@@ -3,7 +3,6 @@ package Unidad4.Tanda1.Ejercicio5;
 public class Carton {
     private int id;
     private int[][] matriz;
-    private int[][] matrizAcertada;
     private boolean[] linea;
     private boolean bingo;
 
@@ -12,9 +11,9 @@ public class Carton {
     public Carton(int id,int numeroMaximo){
         setId(id);
         matriz = new int[3][4];
-        for (int i = 0;i<4;i++){
-            for (int j = 0;j<3;j++){
-                matriz[j][i] = (int)(Math.random()*(numeroMaximo-1))+1;
+        for (int i = 0;i<3;i++){
+            for (int j = 0;j<4;j++){
+                matriz[i][j] = (int)(Math.random()*(numeroMaximo-1)+1);
             }
         }
         setLinea(new boolean[]{false, false, false});
@@ -23,30 +22,41 @@ public class Carton {
 
     //Metodos
     public void comprobar(int numero){
-        matrizAcertada = new int[3][4];
-        int acierto = 0;
         for (int i = 0;i<3;i++){
+            int acierto = 0;
             for (int j = 0;j<4;j++){
                 if (matriz[i][j] == numero){
-                    matriz[i][j] = matrizAcertada[j][i];
-                    for (int h = 0;h<4;h++){
-                        if (matriz[i][h] == matrizAcertada[i][h]){
+                    matriz[i][j] = 0;
+                    for (int z = 0; z < 4; z++){
+                        if (matriz[i][z]==0){
                             acierto++;
-                            if (acierto==4){
-                                System.out.println("El bingo "+id+" ha hecho línea.");
-                            }
-                        }else {
+                        } else {
                             break;
+                        }
+                    }
+                    if (acierto==4){
+                        informacion();
+                        System.out.println("El cartón "+id+" ha hecho línea ("+(i+1)+")");
+                        System.out.println();
+                        linea[i] = true;
+                        if (linea[0] && linea[1] && linea[2]){
+                            setBingo(true);
+                            System.out.println("El cartón "+id+" ha hecho bingo.");
                         }
                     }
                 }
             }
         }
     }
-//    public int[][] informacion(){
-//        return 0;
-//    }
-
+    public void informacion(){
+        for (int i = 0;i<3;i++){
+            for (int j = 0;j<4;j++){
+                System.out.print(matriz[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println("---------------------");
+    }
 
     //Getters y setters
     public int getId() {
