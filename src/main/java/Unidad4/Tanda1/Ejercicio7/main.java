@@ -13,7 +13,6 @@ public class main {
             int numero = scanner.nextInt();
             numeros.add(numero);
         } while (numeros.size() < 10);
-
         scanner.close();
     }
 }
