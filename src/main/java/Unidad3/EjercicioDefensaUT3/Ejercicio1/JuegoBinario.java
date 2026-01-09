@@ -16,11 +16,9 @@ public class JuegoBinario {
 
     }
 
-
     public void pistaDos(byte byteDado){
 
     }
-
 
 
     // Getter y setters
