@@ -1,28 +1,138 @@
 package Unidad3.EjercicioDefensaUT3.Ejercicio1;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class JuegoBinario {
-    byte objetivo;
-    int pistasGanadas;
-    int pistas1;
-    int pistas2;
+    private byte Objetivo;
+    private static int pistasGanadas;
+    private static int pistas1;
+    private static int pistas2;
+
+    private static Scanner scanner = new Scanner(System.in);
     // Constructor
     public JuegoBinario(){
         setObjetivo((byte)(Math.random()*63));
     }
-
-
     // Métodos
-    public void pistaUno(byte byteDado){
+    public static void empezarJuego(){
+        String seguirJugando = "";
+        byte num = 0;
+        int pistas = 0;
+        pistas1 = 0;
+        pistas2 = 0;
+        JuegoBinario numeroObjetivo = new JuegoBinario();
+        System.out.println(numeroObjetivo.getObjetivo());
+        do {
 
+        } while (seguirJugando.equalsIgnoreCase("si"));
+        System.out.println("Empezando juego adivina el número.");
+        String numBinario;
+
+        do {
+
+            do {
+                System.out.print("Introduce un número entre 0-63: ");
+                try {
+                    num = scanner.nextByte();
+                } catch (InputMismatchException e) {
+                    System.out.println("Tipo de dato incorrecto. "+e);
+                    scanner.nextLine();
+                }
+
+                if (num < 0 || num > 63){
+                    System.out.println("Numero fuera del rango pedido.");
+                }
+            } while (num < 0 || num > 63);
+
+            numBinario = Integer.toBinaryString(num);
+            System.out.println("Tu número en binario "+numBinario);
+            if (num == numeroObjetivo.getObjetivo()){
+                System.out.println("Has acertado :D");
+            }else{
+                System.out.println("No has acertado D:");
+                do {
+                    System.out.println("Que tipo de pista quieres: ");
+                    System.out.println("    Pista 1. ¿Misma cantidad de números 1?");
+                    System.out.println("    Pista 2. Cantidad de posición acertadas de 1s.");
+                    pistas = scanner.nextInt();
+                    scanner.nextLine();
+                } while (pistas != 1 && pistas != 2);
+
+                switch (pistas){
+                    case 1:
+                        if (pistaUno(num, numeroObjetivo.getObjetivo())){
+                            System.out.println(numBinario+" tiene la misma cantidad de 1s que "+numeroObjetivo.getObjetivo());
+                        }else {
+                            System.out.println(numBinario+" NO tiene la misma cantidad de 1s que "+numeroObjetivo.getObjetivo());
+                        }
+                        pistas1++;
+                        break;
+                    case 2:
+                        System.out.println("Número de 1s acertados: "+pistaDos(num,numeroObjetivo.getObjetivo()));
+                        pistas2++;
+                        break;
+                }
+
+            }
+        } while (num != numeroObjetivo.getObjetivo());
+
+        System.out.println("¡Has acertado!");
+        pistasGanadas++;
+        System.out.println("El número era "+numeroObjetivo.getObjetivo());
+        System.out.println("    Estadísticas:");
+        System.out.println("    -Pistas 1 necesitadas: "+pistas1);
+        System.out.println("    -Pistas 2 necesitadas: "+pistas2);
+        System.out.println();
+        System.out.println("Pistas ganadas: "+pistasGanadas);
+
+        System.out.print("¿Quieres volver a jugar? (S/n): ");
+        scanner.nextLine();
+        seguirJugando = scanner.nextLine();
+
+        if (!seguirJugando.equalsIgnoreCase("n")){
+            empezarJuego();
+        }
+        scanner.close();
     }
 
-    public void pistaDos(byte byteDado){
 
+    public static boolean pistaUno(byte byteDado, int objetivo){
+        int numUnosOBJETIVO = 0;
+        int numUnosNum = 0;
+        for (int i = 0; i < 6; i++){
+            if ((objetivo & (1 << i)) != 0){
+                numUnosOBJETIVO++;
+            }
+        }
+
+        for (int i = 0; i < 6; i++){
+            if ((byteDado & (1 << i)) != 0){
+                numUnosNum++;
+            }
+        }
+        return numUnosOBJETIVO==numUnosNum;
+    }
+
+    public static int pistaDos(byte byteDado, int objetivo){
+        int numerosAcertados = 0;
+        for (int i = 0; i < 6; i++){
+            if ((objetivo & (1 << i)) == (byteDado & (1 << i))){
+                numerosAcertados++;
+            }
+        }
+        return numerosAcertados;
     }
 
 
     // Getter y setters
+
+
     public void setObjetivo(byte objetivo) {
-        this.objetivo = objetivo;
+        Objetivo = objetivo;
+    }
+
+    public byte getObjetivo() {
+        return Objetivo;
     }
 }
