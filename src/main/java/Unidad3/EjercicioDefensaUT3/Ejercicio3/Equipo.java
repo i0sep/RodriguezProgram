@@ -51,4 +51,13 @@ public class Equipo {
     public void setSlot3(Animal slot3) {
         this.slot3 = slot3;
     }
+
+    @Override
+    public String toString() {
+        return "Equipo{" +
+                "slot1=" + slot1 +
+                ", slot2=" + slot2 +
+                ", slot3=" + slot3 +
+                '}';
+    }
 }

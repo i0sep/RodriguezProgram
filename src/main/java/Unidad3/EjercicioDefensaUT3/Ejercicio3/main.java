@@ -35,8 +35,10 @@ public class main {
         } while (equipoAliado.isAlive() && equipoEnemigo.isAlive());
         if (equipoAliado.isAlive() && !equipoEnemigo.isAlive()){
             System.out.println("Has ganado la batalla :D");
+            System.out.println(equipoAliado.toString());
         } else if (!equipoAliado.isAlive() && equipoEnemigo.isAlive()) {
             System.out.println("Has perdido la batalla D:");
+            System.out.println(equipoEnemigo.toString());
         } else {
             System.out.println("Empate ._.");
         }
