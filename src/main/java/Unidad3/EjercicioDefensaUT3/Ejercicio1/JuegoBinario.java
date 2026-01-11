@@ -9,7 +9,7 @@ public class JuegoBinario {
     private static int pistas1;
     private static int pistas2;
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
     // Constructor
     public JuegoBinario(){
         setObjetivo((byte)(Math.random()*63));
@@ -23,9 +23,8 @@ public class JuegoBinario {
         pistas2 = 0;
         JuegoBinario numeroObjetivo = new JuegoBinario();
         System.out.println(numeroObjetivo.getObjetivo());
-        do {
 
-        } while (seguirJugando.equalsIgnoreCase("si"));
+
         System.out.println("Empezando juego adivina el número.");
         String numBinario;
 
@@ -34,10 +33,10 @@ public class JuegoBinario {
             do {
                 System.out.print("Introduce un número entre 0-63: ");
                 try {
-                    num = scanner.nextByte();
+                    num = SCANNER.nextByte();
                 } catch (InputMismatchException e) {
                     System.out.println("Tipo de dato incorrecto. "+e);
-                    scanner.nextLine();
+                    SCANNER.nextLine();
                 }
 
                 if (num < 0 || num > 63){
@@ -55,16 +54,16 @@ public class JuegoBinario {
                     System.out.println("Que tipo de pista quieres: ");
                     System.out.println("    Pista 1. ¿Misma cantidad de números 1?");
                     System.out.println("    Pista 2. Cantidad de posición acertadas de 1s.");
-                    pistas = scanner.nextInt();
-                    scanner.nextLine();
+                    pistas = SCANNER.nextInt();
+                    SCANNER.nextLine();
                 } while (pistas != 1 && pistas != 2);
 
                 switch (pistas){
                     case 1:
                         if (pistaUno(num, numeroObjetivo.getObjetivo())){
-                            System.out.println(numBinario+" tiene la misma cantidad de 1s que "+numeroObjetivo.getObjetivo());
+                            System.out.println(numBinario+" tiene la misma cantidad de 1s");
                         }else {
-                            System.out.println(numBinario+" NO tiene la misma cantidad de 1s que "+numeroObjetivo.getObjetivo());
+                            System.out.println(numBinario+" NO tiene la misma cantidad de 1s");
                         }
                         pistas1++;
                         break;
@@ -87,13 +86,13 @@ public class JuegoBinario {
         System.out.println("Pistas ganadas: "+pistasGanadas);
 
         System.out.print("¿Quieres volver a jugar? (S/n): ");
-        scanner.nextLine();
-        seguirJugando = scanner.nextLine();
+        SCANNER.nextLine();
+        seguirJugando = SCANNER.nextLine();
 
         if (!seguirJugando.equalsIgnoreCase("n")){
             empezarJuego();
         }
-        scanner.close();
+        SCANNER.close();
     }
 
 
@@ -126,12 +125,9 @@ public class JuegoBinario {
 
 
     // Getter y setters
-
-
     public void setObjetivo(byte objetivo) {
         Objetivo = objetivo;
     }
-
     public byte getObjetivo() {
         return Objetivo;
     }
