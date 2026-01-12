@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class JuegoBinario {
     private byte Objetivo;
-    private static int pistasGanadas;
+    private static int pistasGastadas;
     private static int pistas1;
     private static int pistas2;
 
@@ -66,10 +66,12 @@ public class JuegoBinario {
                             System.out.println(numBinario+" NO tiene la misma cantidad de 1s");
                         }
                         pistas1++;
-                        break;
+                        pistasGastadas++;
+                            break;
                     case 2:
                         System.out.println("Número de 1s acertados: "+pistaDos(num,numeroObjetivo.getObjetivo()));
                         pistas2++;
+                        pistasGastadas++;
                         break;
                 }
 
@@ -77,13 +79,13 @@ public class JuegoBinario {
         } while (num != numeroObjetivo.getObjetivo());
 
         System.out.println("¡Has acertado!");
-        pistasGanadas++;
+
         System.out.println("El número era "+numeroObjetivo.getObjetivo());
         System.out.println("    Estadísticas:");
         System.out.println("    -Pistas 1 necesitadas: "+pistas1);
         System.out.println("    -Pistas 2 necesitadas: "+pistas2);
+        System.out.println("    -Pistas totales gastadas: "+pistasGastadas);
         System.out.println();
-        System.out.println("Pistas ganadas: "+pistasGanadas);
 
         System.out.print("¿Quieres volver a jugar? (S/n): ");
         SCANNER.nextLine();
