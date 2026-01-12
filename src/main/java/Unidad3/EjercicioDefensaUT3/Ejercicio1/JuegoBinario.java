@@ -11,14 +11,14 @@ public class JuegoBinario {
 
     private static final Scanner SCANNER = new Scanner(System.in);
     // Constructor
-    public JuegoBinario(){
+    private JuegoBinario(){
         setObjetivo((byte)(Math.random()*63));
     }
     // Métodos
     public static void empezarJuego(){
-        String seguirJugando = "";
+        String seguirJugando;
         byte num = 0;
-        int pistas = 0;
+        int pistas;
         pistas1 = 0;
         pistas2 = 0;
         JuegoBinario numeroObjetivo = new JuegoBinario();
@@ -38,7 +38,6 @@ public class JuegoBinario {
                     System.out.println("Tipo de dato incorrecto. "+e);
                     SCANNER.nextLine();
                 }
-
                 if (num < 0 || num > 63){
                     System.out.println("Numero fuera del rango pedido.");
                 }
@@ -66,12 +65,10 @@ public class JuegoBinario {
                             System.out.println(numBinario+" NO tiene la misma cantidad de 1s");
                         }
                         pistas1++;
-                        pistasGastadas++;
                             break;
                     case 2:
                         System.out.println("Número de 1s acertados: "+pistaDos(num,numeroObjetivo.getObjetivo()));
                         pistas2++;
-                        pistasGastadas++;
                         break;
                 }
 
@@ -84,6 +81,7 @@ public class JuegoBinario {
         System.out.println("    Estadísticas:");
         System.out.println("    -Pistas 1 necesitadas: "+pistas1);
         System.out.println("    -Pistas 2 necesitadas: "+pistas2);
+        pistasGastadas = pistas1 + pistas2;
         System.out.println("    -Pistas totales gastadas: "+pistasGastadas);
         System.out.println();
 
