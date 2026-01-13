@@ -62,13 +62,4 @@ public class JuegoBinario {
     public int getPistasGastadas() {
         return pistasGastadas;
     }
-    public void setPistas1(int pistas1) {
-        this.pistas1 = pistas1;
-    }
-    public void setPistas2(int pistas2) {
-        this.pistas2 = pistas2;
-    }
-    public void setPistasGastadas(int pistasGastadas) {
-        this.pistasGastadas = pistasGastadas;
-    }
 }
