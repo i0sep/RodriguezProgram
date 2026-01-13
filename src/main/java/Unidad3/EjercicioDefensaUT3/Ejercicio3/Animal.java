@@ -21,11 +21,7 @@ public class Animal {
         isAlive();
     }
     public boolean isAlive(){
-        if (vida > 0){
-            return true;
-        } else {
-            return false;
-        }
+        return vida > 0;
     }
 
 
