@@ -54,10 +54,9 @@ public class main {
 
             System.out.println("El número era "+numeroJuego.getObjetivo());
             System.out.println("    Estadísticas:");
-            System.out.println("    -Pistas 1 necesitadas: "+JuegoBinario.getPistas1());
-            System.out.println("    -Pistas 2 necesitadas: "+JuegoBinario.getPistas2());
-            JuegoBinario.setPistasGastadas(JuegoBinario.getPistas1() + JuegoBinario.getPistas2());
-            System.out.println("    -Pistas totales gastadas: "+JuegoBinario.getPistasGastadas());
+            System.out.println("    -Pistas 1 necesitadas: "+numeroJuego.getPistas1());
+            System.out.println("    -Pistas 2 necesitadas: "+numeroJuego.getPistas2());
+            System.out.println("    -Pistas totales gastadas: "+numeroJuego.getPistasGastadas());
             System.out.println();
         }else{
             System.out.println("No has acertado D:");
@@ -76,16 +75,14 @@ public class main {
 
             switch (respuesta){
                 case 1:
-                    if (JuegoBinario.pistaUno(num, numeroJuego.getObjetivo())){
+                    if (numeroJuego.pistaUno(num, numeroJuego.getObjetivo())){
                         System.out.println(num+" tiene la misma cantidad de 1s");
                     }else {
                         System.out.println(num+" NO tiene la misma cantidad de 1s");
                     }
-                    JuegoBinario.setPistas1(JuegoBinario.getPistas1()+1);
                     break;
                 case 2:
-                    System.out.println("Número de 1s acertados: "+JuegoBinario.pistaDos(num,numeroJuego.getObjetivo()));
-                    JuegoBinario.setPistas2(JuegoBinario.getPistas2()+1);
+                    System.out.println("Número de 1s acertados: "+numeroJuego.pistaDos(num,numeroJuego.getObjetivo()));
                     break;
             }
 

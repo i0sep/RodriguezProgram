@@ -2,9 +2,9 @@ package Unidad3.EjercicioDefensaUT3.Ejercicio1Bien;
 
 public class JuegoBinario {
     private byte Objetivo;
-    private static int pistasGastadas;
-    private static int pistas1;
-    private static int pistas2;
+    private int pistasGastadas;
+    private int pistas1;
+    private int pistas2;
 
     // Constructor
     public JuegoBinario(){
@@ -13,7 +13,7 @@ public class JuegoBinario {
 
     // Métodos
 
-    public static boolean pistaUno(byte byteDado, int objetivo){
+    public boolean pistaUno(byte byteDado, int objetivo){
         int numUnosOBJETIVO = 0;
         int numUnosNum = 0;
         for (int i = 0; i < 6; i++){
@@ -27,16 +27,20 @@ public class JuegoBinario {
                 numUnosNum++;
             }
         }
+        pistas1++;
+        pistasGastadas++;
         return numUnosOBJETIVO==numUnosNum;
     }
 
-    public static int pistaDos(byte byteDado, int objetivo){
+    public int pistaDos(byte byteDado, int objetivo){
         int numerosAcertados = 0;
         for (int i = 0; i < 6; i++){
             if ((objetivo & (1 << i)) == (byteDado & (1 << i))){
                 numerosAcertados++;
             }
         }
+        pistas2++;
+        pistasGastadas++;
         return numerosAcertados;
     }
 
@@ -49,22 +53,22 @@ public class JuegoBinario {
         return Objetivo;
     }
 
-    public static int getPistas1() {
+    public int getPistas1() {
         return pistas1;
     }
-    public static int getPistas2() {
+    public int getPistas2() {
         return pistas2;
     }
-    public static int getPistasGastadas() {
+    public int getPistasGastadas() {
         return pistasGastadas;
     }
-    public static void setPistas1(int pistas1) {
-        JuegoBinario.pistas1 = pistas1;
+    public void setPistas1(int pistas1) {
+        this.pistas1 = pistas1;
     }
-    public static void setPistas2(int pistas2) {
-        JuegoBinario.pistas2 = pistas2;
+    public void setPistas2(int pistas2) {
+        this.pistas2 = pistas2;
     }
-    public static void setPistasGastadas(int pistasGastadas) {
-        JuegoBinario.pistasGastadas = pistasGastadas;
+    public void setPistasGastadas(int pistasGastadas) {
+        this.pistasGastadas = pistasGastadas;
     }
 }
