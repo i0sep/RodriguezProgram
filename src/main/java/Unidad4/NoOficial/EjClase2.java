@@ -64,23 +64,41 @@ public class EjClase2 {
 
 
     public static void fCambio(){   //Desplazar todos los numeros uno a la derecha
-        int filas = 3, columnas = 3;
+        int filas = 5, columnas = 5;
         int[][] numeros = new int[filas][columnas];
 
         for (int i = 0;i<numeros.length;i++){
             for (int j = 0; j<numeros[i].length;j++){
-                numeros[i][j] = i*3+j+1;
+                numeros[i][j] = i*columnas+j+1;
             }
         }
-        System.out.println(Arrays.deepToString(numeros));
+        System.out.println(Arrays.toString(numeros[0]));
+        System.out.println(Arrays.toString(numeros[1]));
+        System.out.println(Arrays.toString(numeros[2]));
 
-        for (int i = 0;i<numeros.length;i++){
-            for (int j = 0; j<numeros[i].length;j++){
-                numeros [i][j] = numeros[i][j];
+        System.out.println("---------");
+        int desplazamiento = 1;
 
+        int ultimo = numeros[filas-1][columnas-1];
+
+        for (int i = filas - desplazamiento; i >= 0; i--){
+            for (int j = columnas - desplazamiento; j >= 0; j--){
+
+                if (i == 0 && j == 0) {
+                    // Primera posición: poner el último guardado
+                    numeros[i][j] = ultimo;
+                } else if (j > 0) {
+                    // Tomar el elemento de la izquierda en la misma fila
+                    numeros[i][j] = numeros[i][j-1];
+                } else {
+                    // Primera columna: tomar el último de la fila anterior
+                    numeros[i][j] = numeros[i-1][columnas-1];
+                }
             }
         }
-        System.out.println(Arrays.deepToString(numeros));
+        System.out.println(Arrays.toString(numeros[0]));
+        System.out.println(Arrays.toString(numeros[1]));
+        System.out.println(Arrays.toString(numeros[2]));
 
     }
 }
