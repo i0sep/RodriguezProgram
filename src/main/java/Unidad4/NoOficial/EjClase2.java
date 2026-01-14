@@ -63,7 +63,7 @@ public class EjClase2 {
 
 
 
-    public static void fCambio(){
+    public static void fCambio(){   //Desplazar todos los numeros uno a la derecha
         int filas = 3, columnas = 3;
         int[][] numeros = new int[filas][columnas];
 
