@@ -4,9 +4,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class main {
-
-    private static final Scanner SCANNER = new Scanner(System.in);
-
     public static void main(String[] args) {
         JuegoBinario numeroJuego = new JuegoBinario();
         System.out.println(numeroJuego.getObjetivo());
@@ -17,22 +14,21 @@ public class main {
         comprobar(num,numeroJuego);
         } while (num != numeroJuego.getObjetivo());
 
-        SCANNER.close();
     }
 
 
     public static byte pedirNumero(){
         byte num = 0;
-
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Empezando juego adivina el número.");
         do {
             System.out.print("Introduce un número entre 0-63: ");
             try {
-                num = SCANNER.nextByte();
+                num = scanner.nextByte();
             } catch (InputMismatchException e) {
                 System.out.println("Tipo de dato incorrecto. "+e);
-                SCANNER.nextLine();
+                scanner .nextLine();
             }
             if (num < 0 || num > 63){
                 System.out.println("Numero fuera del rango pedido.");
@@ -48,6 +44,7 @@ public class main {
 
     public static void comprobar(byte num, JuegoBinario numeroJuego){
         int respuesta = 0;
+        Scanner scanner = new Scanner(System.in);
 
         if (num == numeroJuego.getObjetivo()){
             System.out.println("Has acertado :D");
@@ -65,12 +62,12 @@ public class main {
                 System.out.println("    Pista 1. ¿Misma cantidad de números 1?");
                 System.out.println("    Pista 2. Cantidad de posición acertadas de 1s.");
                 try{
-                    respuesta = SCANNER.nextInt();
+                    respuesta = scanner.nextInt();
                 } catch (InputMismatchException e) {
                     System.out.println("Tipo de dato introducido incorrecto. "+e);;
                 }
 
-                SCANNER.nextLine();
+                scanner.nextLine();
             } while (respuesta != 1 && respuesta != 2);
 
             switch (respuesta){
@@ -85,7 +82,6 @@ public class main {
                     System.out.println("Número de 1s acertados: "+numeroJuego.pistaDos(num,numeroJuego.getObjetivo()));
                     break;
             }
-
         }
     }
 }
