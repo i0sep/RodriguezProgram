@@ -13,7 +13,6 @@ public class main {
         num = pedirNumero();
         comprobar(num,numeroJuego);
         } while (num != numeroJuego.getObjetivo());
-
     }
 
 
@@ -36,7 +35,6 @@ public class main {
         } while (num < 0 || num > 63);
 
         System.out.println("Tu número en binario "+ Integer.toBinaryString(num));
-
         return num;
     }
 

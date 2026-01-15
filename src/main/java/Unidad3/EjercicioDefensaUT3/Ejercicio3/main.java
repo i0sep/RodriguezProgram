@@ -3,7 +3,6 @@ package Unidad3.EjercicioDefensaUT3.Ejercicio3;
 import java.util.Scanner;
 
 public class main {
-    private static final Scanner SCANNER = new Scanner(System.in);
     public static void main(String[] args) {
         Animal grillo = new Animal("Grillo",20, 15);
         Animal tortuga = new Animal("Tortuga",10, 8);
@@ -17,11 +16,11 @@ public class main {
         Equipo enemigo = new Equipo(cangrejo,saltamontes,conejo);
 
         combate(aliado,enemigo);
-        SCANNER.close();
     }
 
     public static void combate(Equipo equipoAliado, Equipo equipoEnemigo){
         int turno = 0;
+        Scanner scanner = new Scanner(System.in);
 
         do {
             System.out.println("Turno 1."+turno);
@@ -31,7 +30,7 @@ public class main {
 
             turno++;
             System.out.println("Enter para seguir.");
-            SCANNER.nextLine();
+            scanner.nextLine();
         } while (equipoAliado.isAlive() && equipoEnemigo.isAlive());
         if (equipoAliado.isAlive() && !equipoEnemigo.isAlive()){
             System.out.println("Has ganado la batalla :D");
@@ -42,5 +41,6 @@ public class main {
         } else {
             System.out.println("Empate ._.");
         }
+        scanner.close();
     }
 }
