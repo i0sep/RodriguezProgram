@@ -44,7 +44,6 @@ public class JuegoBinario {
         return numerosAcertados;
     }
 
-
     // Getter y setters
     public void setObjetivo(byte objetivo) {
         Objetivo = objetivo;

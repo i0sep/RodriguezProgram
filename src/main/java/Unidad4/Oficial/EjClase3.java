@@ -1,4 +1,4 @@
-package Unidad4.NoOficial;
+package Unidad4.Oficial;
 
 import java.util.Scanner;
 public class EjClase3 {
