@@ -14,7 +14,7 @@ public class EjClase4 {
 
         System.out.println("print2: " + salas);
         salas.remove("Trampa");
-        System.out.println("print3: " + salas);
 
+        System.out.println("print3: " + salas);
     }
 }

@@ -12,8 +12,7 @@ public class JuegoBinario {
     }
 
     // Métodos
-
-    public boolean pistaUno(byte byteDado, int objetivo){
+    public boolean pistaUno(byte byteDado, byte objetivo){
         int numUnosOBJETIVO = 0;
         int numUnosNum = 0;
         for (int i = 0; i < 6; i++){
@@ -21,7 +20,6 @@ public class JuegoBinario {
                 numUnosOBJETIVO++;
             }
         }
-
         for (int i = 0; i < 6; i++){
             if ((byteDado & (1 << i)) != 0){
                 numUnosNum++;
@@ -31,8 +29,7 @@ public class JuegoBinario {
         pistasGastadas++;
         return numUnosOBJETIVO==numUnosNum;
     }
-
-    public int pistaDos(byte byteDado, int objetivo){
+    public int pistaDos(byte byteDado, byte objetivo){
         int numerosAcertados = 0;
         for (int i = 0; i < 6; i++){
             if ((objetivo & (1 << i)) == (byteDado & (1 << i))){

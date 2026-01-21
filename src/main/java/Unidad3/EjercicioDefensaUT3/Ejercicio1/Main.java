@@ -3,12 +3,11 @@ package Unidad3.EjercicioDefensaUT3.Ejercicio1;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         JuegoBinario numeroJuego = new JuegoBinario();
-        System.out.println(numeroJuego.getObjetivo());
-        byte num;
 
+        byte num;
         do {
         num = pedirNumero();
         comprobar(num,numeroJuego);

@@ -2,7 +2,7 @@ package Unidad3.EjercicioDefensaUT3.Ejercicio2;
 
 import java.util.Scanner;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         Guerrero guerrera = new Guerrero();
         Scanner scanner = new Scanner(System.in);
@@ -29,6 +29,7 @@ public class main {
                     break;
                 }
             }
+
             if (guerrera.getVida()>0){
                 enemigoMatado++;
                 guerrera.incExperiencia(expRecibida);
