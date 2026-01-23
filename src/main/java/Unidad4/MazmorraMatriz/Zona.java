@@ -1,7 +1,5 @@
 package Unidad4.MazmorraMatriz;
 
-import java.util.Arrays;
-
 public class Zona {
     private int nivel;
     private boolean jefe;
