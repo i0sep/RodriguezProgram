@@ -76,4 +76,7 @@ public class Carta {
                 ", informacion=" + Arrays.toString(informacion) +
                 '}';
     }
+    public TIPO_CORRECTO getTipo() {
+        return tipo;
+    }
 }
