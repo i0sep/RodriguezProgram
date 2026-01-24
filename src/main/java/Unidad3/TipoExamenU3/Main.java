@@ -7,7 +7,7 @@ public class Main {
                 eProteccionSistema.values()[(int)(Math.random()*3)]
             );
         System.out.println(s1.toString());
-        s1.InstalarProtecciones(eProteccionSistema.ANTIVIRUS);
+        s1.instalarProtecciones(eProteccionSistema.ANTIVIRUS);
         System.out.println(s1.toString());
     }
 }

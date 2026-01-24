@@ -31,10 +31,11 @@ public class Sistema {
         }
         return false;
     }
-    public void InstalarProtecciones(eProteccionSistema PROTECCION3){
+    public void instalarProtecciones(eProteccionSistema PROTECCION){
         int count = 0; int aux;
-        if (comprobarProteccion(PROTECCION3)){
-            setProteccion3(PROTECCION3);
+        if (comprobarProteccion(PROTECCION)){
+            setProteccion3(PROTECCION);
+
             for (eProteccionSistema sistema : eProteccionSistema.values()){
                 if (sistema == PROTECCION1){
                     count++;
@@ -58,13 +59,25 @@ public class Sistema {
                     }
                 }
             }
+        }else {
+            pedirProteccion(PROTECCION);
+            instalarProtecciones(PROTECCION);
+        }
+    }
+    public void pedirProteccion(eProteccionSistema PROTECCION){
+        Scanner scanner = new Scanner(System.in);
+        while (comprobarProteccion(PROTECCION)){
+            System.out.println("Introduceme una proteccion correcta ('Antivirus','Firewall,'IDS'): ");
+            String respuesta = scanner.nextLine();
+            PROTECCION = eProteccionSistema.valueOf(respuesta.toUpperCase());
         }
     }
 
 
 
-    // Getter y setter
 
+
+    // Getter y setter
     public void setId(int id) {
         this.id = id;
     }
@@ -93,14 +106,6 @@ public class Sistema {
             this.PROTECCION3 = PROTECCION3;
         }else {
             this.PROTECCION3 = null;
-        }
-    }
-    public void pedirProteccion(eProteccionSistema PROTECCION){
-        Scanner scanner = new Scanner(System.in);
-        while (comprobarProteccion(PROTECCION)){
-            System.out.println("Introduceme una proteccion correcta ('Antivirus','Firewall,'IDS'): ");
-            String respuesta = scanner.nextLine();
-            PROTECCION = eProteccionSistema.valueOf(respuesta.toUpperCase());
         }
     }
     public void setEstado(String estado) {
