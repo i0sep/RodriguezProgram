@@ -47,7 +47,6 @@ public class Zona {
 
 
 
-
     // getter y setters
     public Carta[][] getCartas() {
         return cartas;

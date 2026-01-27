@@ -1,7 +1,5 @@
 package Unidad4.MazmorraMatriz;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         Carta[] cartasDeSala = {

@@ -1,24 +1,19 @@
 package Unidad4.MazmorraMatriz;
 
 import java.util.Arrays;
-import java.util.Locale;
 
 enum TIPO_CORRECTO{
     ESBIRRO, DESCANSO, TESORO, COMERCIANTE, EVENTO, TRAMPA, AMO;
 }
 public class Carta {
     private TIPO_CORRECTO tipo;
-    private final String[] informacion = new String[3];
+    private String[] informacion = new String[3];
 
     // Constructor
     public Carta(String tipo){
         setTipo(tipo);
         setInformacion();
     }
-
-
-
-
 
     // getter y setters
     public String[] getInformacion() {
