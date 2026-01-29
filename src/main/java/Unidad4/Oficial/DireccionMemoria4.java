@@ -7,7 +7,7 @@ public class DireccionMemoria4 {
         System.out.println("1 " +numeros1);
         System.out.println("2 " +numeros2);
 
-        cambio(numeros1,numeros2);
+        cambio(numeros1,numeros2.clone());
 
         System.out.println("1 "+numeros1);
         System.out.println("2 "+numeros2);
